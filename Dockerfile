@@ -33,6 +33,9 @@ RUN useradd -u $USERID -m -g user -G plugdev,dialout user \
         && echo 'user ALL = NOPASSWD: ALL' > /etc/sudoers.d/user \
         && chmod 0440 /etc/sudoers.d/user
 
+RUN mkdir /workdir && \
+    chown user:user /workdir
+
 USER user
 
 RUN mkdir -p /home/user/esp && \
