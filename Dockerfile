@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="https://github.com/frebbles"
 
-ARG USERID=500
+ARG USERID=1000
 ARG GROUPID=1000
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -34,7 +34,7 @@ RUN useradd -u $USERID -m -g user -G plugdev,dialout user \
         && chmod 0440 /etc/sudoers.d/user
 
 RUN mkdir /workdir && \
-    chown user:user /workdir
+    chown -R user:user /workdir
 
 USER user
 
