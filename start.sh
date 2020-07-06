@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#Check Workdir exists prior to running
-if [ ! -d ./workdir ] then
+# Check Workdir exists prior to running
+if [ ! -d "./workdir" ]; then
   mkdir workdir
 fi
 
