@@ -23,7 +23,7 @@ RUN dpkg --add-architecture i386 && \
 
 RUN apt-get install --no-install-recommends -y git wget flex bison gperf python python-pip python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
 
-RUN apt-get install --no-install-recommends -y python3 python3-pip python3-setuptools
+RUN apt-get install --no-install-recommends -y python3.7 python3-pip python3-setuptools python3.7-venv python3-pip
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
@@ -49,7 +49,7 @@ RUN cd /home/user/esp && \
     git clone --recursive https://github.com/espressif/esp-who.git
 
 RUN cd /home/user/esp/esp-idf && \
-    ./install.sh
+    sudo ./install.sh
 
 CMD export IDF_PATH=/home/user/esp/esp-idf && \
     export ADF_PATH=/home/user/esp/esp-adf && \
