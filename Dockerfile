@@ -27,6 +27,17 @@ RUN apt-get install --no-install-recommends -y python3.7 python3-pip python3-set
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
+RUN apt-get install -y build-essential libtool autoconf unzip wget
+
+RUN apt-get remove -y cmake
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.25.0-rc4/cmake-3.25.0-rc4.tar.gz \
+    && tar -xvzf cmake-3.25.0-rc4.tar.gz \
+    && cd cmake-3.25.0-rc4 \
+    && ./bootstrap \
+    && make \
+    && make install
+
 # Create a user
 RUN groupadd -g $GROUPID -o user
 RUN useradd -u $USERID -m -g user -G plugdev,dialout user \ 
