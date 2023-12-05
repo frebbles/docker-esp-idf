@@ -23,7 +23,7 @@ RUN dpkg --add-architecture i386 && \
 
 RUN apt-get install --no-install-recommends -y git wget flex bison gperf python python-pip python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
 
-RUN apt-get install --no-install-recommends -y python3.7 python3-pip python3-setuptools python3.7-venv python3-pip
+RUN apt-get install --no-install-recommends -y python3.8 python3-pip python3-setuptools python3.8-venv python3-pip
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
